@@ -32,7 +32,8 @@ def lib_size(countNdarray):
 
     for i in range(countNdarray.shape[1]):
         idx = countNdarray[:, i] > 0
-        librarySizes[i] = np.median(countNdarray[idx, i] / geoMeans[idx])
+        #librarySizes[i] = np.median(countNdarray[idx, i] / geoMeans[idx])
+        librarySizes[i] = np.percentile(countNdarray[:, i], 85)
 
     return librarySizes
 
